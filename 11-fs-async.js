@@ -1,18 +1,29 @@
-const http = require('http')
+const { readFile, writeFile } = require('fs')
 
-const server = http.createServer((req,res)=>{
-    if(req.url==='/'){
-       res.end('Welcome to our homepage') 
+console.log('start')
+readFile('./content/first.txt', 'utf8', (err, result) => {
+  if (err) {
+    console.log(err)
+    return
+  }
+  const first = result
+  readFile('./content/second.txt', 'utf8', (err, result) => {
+    if (err) {
+      console.log(err)
+      return
     }
-    if(req.url === '/about'){
-        res.end('Here is our short history')
-    }
-    res.end(
-        `<h1>Oops!</h1>
-        <p>We can't seem to find the page you are looking for</p>
-        <a href="/">Back home</a>
-        `
+    const second = result
+    writeFile(
+      './content/result-async.txt',
+      `Here is the result : ${first}, ${second}`,
+      (err, result) => {
+        if (err) {
+          console.log(err)
+          return
+        }
+        console.log('done with this task')
+      }
     )
+  })
 })
-
-server.listen(5000)
+console.log('starting next task')
