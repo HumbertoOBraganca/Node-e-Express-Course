@@ -9,4 +9,4 @@ customEmitter.on('response',()=>{
     console.log(`some other logic`)
 })
 
-customEmitter.emit('response', 'Humberto', 149459)
+customEmitter.emit('response', 'Humberto', 149459) 
