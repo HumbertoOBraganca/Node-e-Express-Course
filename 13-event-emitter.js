@@ -19,3 +19,4 @@ customEmitter.on('response', () => {
 })
 
 customEmitter.emit('response', 'Humbrto', 149459)
+// Esse comentário é apenas para consertar um commit

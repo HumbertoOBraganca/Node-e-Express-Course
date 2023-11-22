@@ -40,3 +40,4 @@ start()
 //getText('./content/first.txt').then(result => console.log(result))
 //.catch(err => console.log(err))
 //console.log('kjknbk')
+// Esse comentário é apenas para consertar um commit
